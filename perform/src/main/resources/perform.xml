@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:p="http://www.springframework.org/schema/p"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	<bean id="duke1" class="my.home.pro.perform.Juggler"/>
+	<bean id="duke2" class="my.home.pro.perform.Juggler">
+		<constructor-arg value='10'/>
+	</bean>
+	<bean id="sonnet29"
+		  class="my.home.pro.perform.Sonnet29" />
+	<bean id="poet-duke" class="my.home.pro.perform.PoeticJuggler" scope="prototype">
+		<constructor-arg ref="sonnet29"/>
+		<constructor-arg value="15"/>
+	</bean>
+	<bean id="theStage" class="my.home.pro.perform.Stage"
+		  factory-method="getInstance"/>
+	<bean id="kenny" class="my.home.pro.perform.Instrumentalist"
+		p:song="Jingle Bells"
+		p:instrument-ref="piano"/>
+	<bean id="saxophone" class="my.home.pro.perform.Saxophone"/>
+	<bean id="piano" class="my.home.pro.perform.Piano"/>
+	<bean id="kenny-gay" class="my.home.pro.perform.Instrumentalist">
+		<property name="song" value="Stairway to Heaven"/>
+		<property name="instrument">
+			<bean class="my.home.pro.perform.Saxophone"/>
+		</property>
+	</bean>
+</beans>
