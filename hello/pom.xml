@@ -3,8 +3,8 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-    <groupId>my.home.pro</groupId>
-		<artifactId>spirng</artifactId>
+		<groupId>my.home.pro</groupId>
+		<artifactId>spring</artifactId>
 		<version>0.0.1</version>
 	</parent>
 	
