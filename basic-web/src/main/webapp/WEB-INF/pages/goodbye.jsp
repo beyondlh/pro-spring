@@ -1,0 +1,17 @@
+<%-- 
+    Document   : helloReader
+    Created on : 06.04.2015, 12:04:55
+    Author     : Благодатских С.
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Get out</title>
+    </head>
+    <body>
+        <h1>${message}${name}!</h1>
+    </body>
+</html>

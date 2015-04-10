@@ -39,6 +39,10 @@
 		<module>oracle</module>
 		<module>hello-inject</module>
 	 <module>spring-book-ch2</module>
+	 <module>test-scope</module>
+	 <module>config-runtime</module>
+    <module>basic-web</module>
+	 <module>spring-book-ch4</module>
 	</modules>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
