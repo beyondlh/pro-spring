@@ -43,6 +43,7 @@
 	 <module>config-runtime</module>
     <module>basic-web</module>
 	 <module>spring-book-ch4</module>
+	 <module>spring-book-ch5</module>
 	</modules>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
