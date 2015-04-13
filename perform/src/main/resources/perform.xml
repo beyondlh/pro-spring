@@ -2,8 +2,10 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	   xmlns:p="http://www.springframework.org/schema/p"
+	   xmlns:util="http://www.springframework.org/schema/util"
 	   xsi:schemaLocation="http://www.springframework.org/schema/beans
-http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 	<bean id="duke1" class="my.home.pro.perform.Juggler"/>
 	<bean id="duke2" class="my.home.pro.perform.Juggler">
 		<constructor-arg value='10'/>
@@ -17,14 +19,62 @@ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 	<bean id="theStage" class="my.home.pro.perform.Stage"
 		  factory-method="getInstance"/>
 	<bean id="kenny" class="my.home.pro.perform.Instrumentalist"
-		p:song="Jingle Bells"
-		p:instrument-ref="piano"/>
+		  p:song="Jingle Bells"
+		  p:instrument-ref="piano"/>
 	<bean id="saxophone" class="my.home.pro.perform.Saxophone"/>
 	<bean id="piano" class="my.home.pro.perform.Piano"/>
+	<bean id="cymbal" class="my.home.pro.perform.Cymbal"/>
+	<bean id="harmonica" class="my.home.pro.perform.Harmonica"/>
 	<bean id="kenny-gay" class="my.home.pro.perform.Instrumentalist">
 		<property name="song" value="Stairway to Heaven"/>
 		<property name="instrument">
 			<bean class="my.home.pro.perform.Saxophone"/>
 		</property>
 	</bean>
+	<bean id="hank" class="my.home.pro.perform.OneManBand">
+		<property name="instruments">
+			<map>
+				<entry key="Saxaphone" value-ref="saxophone"/>
+				<entry key="Piano" value-ref="piano"/>
+				<entry key="Cymbal" value-ref="cymbal"/>
+				<entry key="Harmonica" value-ref="harmonica"/>
+			</map>
+			<!--
+			<list>
+				<ref bean="saxophone"/>
+				<ref bean="piano"/>
+				<ref bean="cymbal"/>
+				<ref bean="harmonica"/>
+			</list>
+			-->
+		</property>
+	</bean>
+	<util:list id="cities">
+		<bean class="my.home.pro.perform.City"
+			  p:name="Chicago" p:state="IL" p:population="2853114"/>
+		<bean class="my.home.pro.perform.City"
+			  p:name="Atlanta" p:state="GA" p:population="537958"/>
+		<bean class="my.home.pro.perform.City"
+			  p:name="Dallas" p:state="TX" p:population="1279910"/>
+		<bean class="my.home.pro.perform.City"
+			  p:name="Houston" p:state="TX" p:population="2242193"/>
+		<bean class="my.home.pro.perform.City"
+			  p:name="Odessa" p:state="TX" p:population="90943"/>
+		<bean class="my.home.pro.perform.City"
+			  p:name="El Paso" p:state="TX" p:population="613190"/>
+		<bean class="my.home.pro.perform.City"
+			  p:name="Jal" p:state="NM" p:population="1996"/>
+		<bean class="my.home.pro.perform.City"
+			  p:name="Las Cruces" p:state="NM" p:population="91865"/>
+	</util:list>
+	<bean id="homePath" class="java.lang.String">
+		<constructor-arg>
+			<value>#{systemEnvironment['HOME']}</value>
+		</constructor-arg>
+	</bean>
+	<!--
+	<bean id="bigCities" class="java.util.List" >
+		<constructor-arg value="#{cities.?[population gt 100000]}"/>
+	</bean>
+	-->
 </beans>
