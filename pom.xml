@@ -9,9 +9,6 @@
 
 	<name>spring</name>
 
-	<properties>
-		<spring.version>4.1.3.RELEASE</spring.version>
-	</properties>
 
 	<dependencies>
 		<dependency>
@@ -49,14 +46,17 @@
 		<module>hello</module>
 		<module>oracle</module>
 		<module>hello-inject</module>
-	  <module>spring-book-ch2</module>
-	  <module>test-scope</module>
-	  <module>config-runtime</module>
-    <module>basic-web</module>
-	 <module>spring-book-ch4</module>
-	 <module>spring-book-ch5</module>
+		<module>spring-book-ch2</module>
+		<module>test-scope</module>
+		<module>config-runtime</module>
+		<module>basic-web</module>
+		<module>spring-book-ch4</module>
+		<module>spring-book-ch5</module>
+	 <module>profiles</module>
+	 <module>qualifires</module>
 	</modules>
 	<properties>
+		<spring.version>4.1.3.RELEASE</spring.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 </project>
