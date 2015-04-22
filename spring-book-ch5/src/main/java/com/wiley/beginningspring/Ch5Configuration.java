@@ -14,6 +14,7 @@ import org.hibernate.jpa.HibernatePersistenceProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
@@ -79,6 +80,14 @@ public class Ch5Configuration {
 	public BookService bookService() {
 		BookServiceImpl bean = new BookServiceImpl();
 		bean.setBookDao(bookDao());
+		return bean;
+	}
+
+	@Bean
+	public static PersistenceExceptionTranslationPostProcessor
+			persistenceExceptionTranslationPostProcessor() {
+		PersistenceExceptionTranslationPostProcessor bean
+				= new PersistenceExceptionTranslationPostProcessor();
 		return bean;
 	}
 
