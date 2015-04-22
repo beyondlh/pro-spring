@@ -88,5 +88,6 @@
 		<module>spring-book-ch5</module>
 		<module>spring-book-ch6</module>
 		<module>spring-book-ch7</module>
-	</modules>
+    <module>webapp-test</module>
+  </modules>
 </project>
