@@ -92,6 +92,7 @@
 		<module>spring-book-ch7</module>
     <module>webapp-test</module>
 	 <module>aop-sample</module>
-	</modules>
+    <module>test-rest</module>
+    <module>test-rest-anno</module>
+  </modules>
 </project>
-
