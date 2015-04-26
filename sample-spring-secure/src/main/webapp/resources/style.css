@@ -12,3 +12,37 @@ p {
 	font-size: 1.2em;
 	color: #8d8b8d;
 }
+
+.login-form, .login-form input {
+	color: dimgrey;
+}
+
+.login-form > form > label > input[type='text'], 
+.login-form > form > label > input[type='password'] {
+	color: dimgrey;
+	background: none;
+	font-family: cursive;
+	border: 1px solid grey;
+}
+
+.login-form {
+	width: 240px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.login-form label {
+	text-align: right;
+	display: block;
+	margin-bottom: 3px;
+}
+.login-form input[type='submit'] {
+	float: right;
+	background: none;
+	border: 2px solid grey;
+}
+
+.login-form input[type='submit']:hover {
+	background: gray;
+	color: whitesmoke;
+}
