@@ -15,6 +15,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -31,17 +32,12 @@ public class UserRestControllerTest {
 	public void setup() {
 		mockMvc = MockMvcBuilders.webAppContextSetup(wac).build();
 	}
-	/*
-	 @Test
-	 public void testSave() {
-	 //		"/users", method = RequestMethod.POST)
-	 }
-	 */
 
 	@Test
 	public void testList() throws Exception {
 		mockMvc.perform(get("/rest/users"))
 				.andExpect(status().isOk())
+				.andDo(print())
 				.andExpect(content().contentType("application/json;charset=UTF-8"))
 				.andExpect(jsonPath("$").exists())
 				.andExpect(jsonPath("$", new SizeMatcher(2)))
@@ -50,22 +46,17 @@ public class UserRestControllerTest {
 				.andExpect(jsonPath("$[0].name").value("Mert Caliskan"))
 				.andExpect(jsonPath("$[1].name").value("Kenan Sevindik"));
 	}
-	/*
-	 //	@RequestMapping(value = "/users/{id}", method = RequestMethod.GET)
 	 @Test
-	 public void testGet() {
+	 public void testGet() throws Exception {
+		mockMvc.perform(get("/rest/users/3"))
+				.andExpect(status().isOk())
+				.andExpect(jsonPath("$").exists())
+				.andExpect(jsonPath("$.code").value(1))
+				.andExpect(jsonPath("$.status").value("OK"))
+				.andExpect(jsonPath("$.message").value("User not found!"))
+				.andExpect(jsonPath("$.detailedMessage").value("User with id: 3 not found in the system"));
 	 }
 
-	 //	@RequestMapping(value = "/users/{id}", method = RequestMethod.PUT)
-	 @Test
-	 public void testUpdate() {
-	 }
-
-	 //	@RequestMapping(value = "/users/{id}", method = RequestMethod.DELETE)
-	 @Test
-	 public void testDelete() {
-	 }
-	 */
 }
 
 class SizeMatcher extends BaseMatcher<Object> {

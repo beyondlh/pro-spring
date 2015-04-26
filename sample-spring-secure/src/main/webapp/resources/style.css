@@ -1,0 +1,14 @@
+body {
+	text-align: center;
+}
+h1 {
+	font-family: "Comic Sans", calibri, Garamond;
+	color: dimgrey;
+	font-size: 2em;
+}
+
+p {
+	font-style: italic;
+	font-size: 1.2em;
+	color: #8d8b8d;
+}

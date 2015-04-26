@@ -2,6 +2,7 @@ package my.home.springbeginning.ch11;
 
 import java.util.List;
 import my.home.springbeginning.ch11.domain.User;
+import my.home.springbeginning.ch11.error.RestException;
 import my.home.springbeginning.ch11.service.UserRepository;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,7 +40,13 @@ public class UserRestController {
 
 	@RequestMapping(value = "/users/{id}", method = RequestMethod.GET)
 	public User get(@PathVariable("id") int id) {
-		return userRepository.find(id);
+		User user = userRepository.find(id);
+		if (user == null) {
+			throw new RestException(1, "User not found!",
+					"User with id: " + id + " not found in the system");
+
+		}
+		return user;
 	}
 
 	@RequestMapping(value = "/users/{id}", method = RequestMethod.PUT)

@@ -94,5 +94,6 @@
 	 <module>aop-sample</module>
     <module>test-rest</module>
     <module>test-rest-anno</module>
+    <module>sample-spring-secure</module>
   </modules>
 </project>
