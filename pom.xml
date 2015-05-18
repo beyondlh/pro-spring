@@ -95,5 +95,7 @@
     <module>test-rest</module>
     <module>test-rest-anno</module>
     <module>sample-spring-secure</module>
-  </modules>
+	 <module>byexample</module>
+	 <module>use-collection</module>
+	</modules>
 </project>
