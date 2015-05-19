@@ -97,5 +97,6 @@
     <module>sample-spring-secure</module>
 	 <module>byexample</module>
 	 <module>use-collection</module>
+	 <module>config-detail</module>
 	</modules>
 </project>
