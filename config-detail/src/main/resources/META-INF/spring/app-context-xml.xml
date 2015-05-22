@@ -6,15 +6,22 @@
 http://www.springframework.org/schema/beans/spring-beans.xsd"
 	   default-lazy-init="true">
 	<bean id="simpleBean1"
-	  class="my.home.pro.SimpleBean"
-	  init-method="init" p:name="Chris Schaefer" p:age="32"/>
+		  class="my.home.pro.SimpleBean"
+		  init-method="init" p:name="Chris Schaefer" p:age="32"/>
  
 	<bean id="simpleBean2"
-	  class="my.home.pro.SimpleBean"
-	  init-method="init" p:age="32"/>
+		  class="my.home.pro.SimpleBean"
+		  init-method="init" p:age="32"/>
  
 	<bean id="simpleBean3"
-	  class="my.home.pro.SimpleBean"
-	  init-method="init" p:name="Chris Schaefer"/> 
+		  class="my.home.pro.SimpleBean"
+		  init-method="init" p:name="Chris Schaefer"/> 
+
+	<bean id="destructiveBean" class="my.home.pro.DestructiveBean"
+		  p:filePath="#{systemProperties['java.io.tmpdir']}#{systemProperties['file.separator']}test.txt" 
+		  destroy-method="destroy"/>
+
+	<bean id="dWithInterface" class="my.home.pro.DestructiveBeanWithInterface"/>
+	<bean id="beanNamePrinter" class="my.home.pro.BeanNamePrinter"/>
 
 </beans>

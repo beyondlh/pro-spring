@@ -20,5 +20,7 @@
 	<bean id="simpleBean3"
 		  class="my.home.pro.SimpleBeanWithJSR250"
 		  p:name="Chris Schaefer"/> 
-
+	<bean id="destructiveBean"
+	  class="my.home.pro.DestructiveBeanWithJSR250"
+	  p:filePath="#{systemProperties['java.io.tmpdir']}#{systemProperties['file.separator']}test.txt"/>
 </beans>
